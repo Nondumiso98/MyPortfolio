@@ -1709,10 +1709,112 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+/* Chatbot Container */
+/* Chatbot Container */
+.chat-container {
+  background-color: #eee;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  height: 50vh;
+  overflow: hidden;
+  z-index: 1000;
+}
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+/* Chat Header with Close Button */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #28a745; /* Green header */
+  color: white;
+  padding: 10px 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chat-header span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ccc;
+}
+
+/* Chat Messages Area */
+.chat-box {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  color: #000;
+}
+
+/* Input and Button Wrapper */
+.user-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  border-top: 1px solid #ccc;
+}
+
+/* Input Field */
+.user-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #000;
+}
+
+/* Send Button */
+.send-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.send-btn:hover {
+  background-color: #45a049;
+}
+
+/* Chatbot Toggle Icon */
+.chat-toggle {
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-toggle:hover {
+  background-color: #45a049;
 }
