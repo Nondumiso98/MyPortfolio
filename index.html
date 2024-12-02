@@ -10,13 +10,14 @@
 
   <!-- Favicons -->
   <link href="assets/img/icon.jpg" rel="icon">
+  
   <link href="assets/img/icon.jpg" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -60,7 +61,12 @@
       </nav>
 
       <a class="btn-getstarted" href="index.html#about">Get Started</a>
-
+      <!-- Chatbot Toggle Icon -->
+      <a class="chat-toggle" href="javascript:void(0);" onclick="openChat();">
+        <i class="fas fa-robot"></i>
+      </a>
+    
+  
     </div>
   </header>
 
@@ -309,7 +315,7 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Kefiloe Mphya</h4>
+                <h4>Phumzile Ngwenya</h4>
                 <span>Candidate Manager</span>
               </div>
             </div>
@@ -462,6 +468,7 @@
               <a href="www.linkedin.com/in/nondumiso-thwala-5110b4214"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
+          
 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Useful Links</h4>
@@ -472,32 +479,33 @@
               
             </ul>
           </div>
-
-          <!--<div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Design</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Development</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Product Management</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Marketing</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-12 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
-          </div> -->
-
         </div>
       </div>
     </div>
+
+        
+       <!-- Chatbot Container -->
+        <div class="chat-container" id="chat-container">
+          <!-- Close Button -->
+          <div class="chat-header">
+            <span>Chatbot</span>
+            <button class="close-btn" onclick="closeChat();">&times;</button>
+          </div>
+          <div class="chat-box" id="chat-box">
+            <!-- Chat messages will appear here -->
+          </div>
+          <div class="user-input-wrapper">
+            <input type="text" id="user-input" class="user-input" placeholder="Type a message..." autofocus>
+            <button onclick="sendMessage()" class="send-btn">Send</button>
+          </div>
+        </div>
+
+        
+
+
+    
+  
+    <script src="script.js"></script>
 
     <div class="copyright">
       <div class="container text-center">
@@ -513,6 +521,7 @@
     </div>
 
   </footer>
+  
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
