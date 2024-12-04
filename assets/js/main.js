@@ -209,3 +209,64 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+// /////////////chat bot/////////////////////
+// Function to toggle chatbot visibility
+// Function to toggle the chatbot on
+function openChat() {
+  const chatContainer = document.getElementById("chat-container");
+  chatContainer.style.display = "flex"; // Show the chatbot
+}
+
+// Function to toggle the chatbot off
+function closeChat() {
+  const chatContainer = document.getElementById("chat-container");
+  chatContainer.style.display = "none"; // Hide the chatbot
+}
+
+// Existing functions for chatbot functionality
+function sendMessage() {
+  const chatBox = document.getElementById("chat-box");
+  const userInput = document.getElementById("user-input");
+  const userMessage = userInput.value.trim();
+
+  if (userMessage === "") {
+    return;
+  }
+
+  addMessage(userMessage, "user-msg");
+  userInput.value = "";
+
+  setTimeout(() => {
+    generateBotResponse(userMessage);
+  }, 500);
+}
+
+function addMessage(message, className) {
+  const chatBox = document.getElementById("chat-box");
+  const messageElement = document.createElement("div");
+  messageElement.className = `message ${className}`;
+  messageElement.textContent = message;
+  chatBox.appendChild(messageElement);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function generateBotResponse(userMessage) {
+  let botMessage = "";
+
+  if (userMessage.toLowerCase().includes("hello")) {
+    botMessage = "Hi there! How can I assist you today?";
+  } else if (userMessage.toLowerCase().includes("help")) {
+    botMessage = "Sure! What do you need help with?";
+  } else {
+    botMessage = "Sorry, I don't understand what you're saying.";
+  }
+
+  addMessage(botMessage, "bot-msg");
+}
+
+// Optional: Trigger sendMessage when "Enter" key is pressed
+document.getElementById("user-input").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
