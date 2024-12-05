@@ -45,7 +45,6 @@
         mobileNavToogle();
       }
     });
-
   });
 
   /**
@@ -209,64 +208,81 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
 // /////////////chat bot/////////////////////
 // Function to toggle chatbot visibility
-// Function to toggle the chatbot on
 function openChat() {
   const chatContainer = document.getElementById("chat-container");
   chatContainer.style.display = "flex"; // Show the chatbot
 }
 
-// Function to toggle the chatbot off
+setTimeout(() => {
+  generateBotResponse("hello");
+}, 500);
+
+
+// Function to close the chat container
 function closeChat() {
   const chatContainer = document.getElementById("chat-container");
   chatContainer.style.display = "none"; // Hide the chatbot
 }
 
-// Existing functions for chatbot functionality
+// Function to send a message
 function sendMessage() {
+  const userInput = document.getElementById("user-input").value.trim();
   const chatBox = document.getElementById("chat-box");
-  const userInput = document.getElementById("user-input");
-  const userMessage = userInput.value.trim();
 
-  if (userMessage === "") {
-    return;
-  }
+  if (userInput === "") return;  // Prevent sending empty messages
 
-  addMessage(userMessage, "user-msg");
-  userInput.value = "";
+  // Add the user's message
+  addMessage(userInput, "user-msg");
 
+  // Clear the input field
+  document.getElementById("user-input").value = "";
+
+  // Simulate bot response after a short delay
   setTimeout(() => {
-    generateBotResponse(userMessage);
+    generateBotResponse(userInput);
   }, 500);
 }
 
+// Function to generate the bot's response
+function generateBotResponse(userMessage) {
+  const response = getBotResponse(userMessage.toLowerCase());
+  addMessage(response, "bot-msg");
+}
+
+// Function to add messages to the chatbox
 function addMessage(message, className) {
   const chatBox = document.getElementById("chat-box");
   const messageElement = document.createElement("div");
   messageElement.className = `message ${className}`;
   messageElement.textContent = message;
   chatBox.appendChild(messageElement);
+
+  // Scroll to the bottom of the chatbox to show the new message
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-function generateBotResponse(userMessage) {
-  let botMessage = "";
+// Function to get the bot's response based on user input
+function getBotResponse(input) {
+  const responses = {
+    "hello": "Hi there! How can I assist you?",
+    
+    "hi": "Hi there! How can I help you today?",
+    "services": "Web & Mobile Application,Building with HTML & CSS,Security and Compliance,Designs,Server-side programming",
+    "skills": "Nondumiso's soft skills include punctuality, good communication skills, reliability, and fast learning.",
+    "thank you": "You're welcome! Feel free to reach out if you need any help.",
+    "bye": "Goodbye! Have a wonderful day.",
+    "how are you": "I'm doing great, thank you for asking! How can I assist you?",
+    "what is your name": "I am Abel Nondumiso's assistant. How can I help you today?",
+    "where are you located": "We are a virtual company, but we are always here to assist you online.",
+    "can you help me": "Of course! Please let me know how I can help you.",
+    "how do I contact support": "You can reach out to support through our contact page or by email.",
+    "links": "Click any icon below my profile and it will redirect to my to my profiles",
+    "education":" Nondumiso Studies at the Tshwane University of Technology, Information Technology(Software Development)",
+    "default": "Sorry, I didn't understand that. Can you try again?"
+  };
 
-  if (userMessage.toLowerCase().includes("hello")) {
-    botMessage = "Hi there! How can I assist you today?";
-  } else if (userMessage.toLowerCase().includes("help")) {
-    botMessage = "Sure! What do you need help with?";
-  } else {
-    botMessage = "Sorry, I don't understand what you're saying.";
-  }
-
-  addMessage(botMessage, "bot-msg");
+  return responses[input] || responses["default"];
 }
-
-// Optional: Trigger sendMessage when "Enter" key is pressed
-document.getElementById("user-input").addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    sendMessage();
-  }
-});
