@@ -268,7 +268,7 @@ function addMessage(message, className) {
 function getBotResponse(input) {
   const responses = {
     "hello": "Hi there! How can I assist you?",
-    "hey": "Hi there! How can I assist you?",
+    
     "hi": "Hi there! How can I help you today?",
     "services": "Web & Mobile Application,Building with HTML & CSS,Security and Compliance,Designs,Server-side programming",
     "skills": "Nondumiso's soft skills include punctuality, good communication skills, reliability, and fast learning.",
